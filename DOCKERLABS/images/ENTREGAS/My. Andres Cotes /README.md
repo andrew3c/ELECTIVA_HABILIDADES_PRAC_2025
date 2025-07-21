@@ -1,15 +1,16 @@
 ## # 🐳DockerLabs - Reto AMOR	❤️
 
 1. Realizar una investigación individual de cada una de las herramientas empleadas. Sintetice el resultado mediante un cuadro que explique su definición, funcionalidad y casos de uso.
-## RTA
-
-Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto de dificultad Fácil. Tiene como objetivo introducir herramientas básicas de pentesting sobre entornos Docker usando técnicas de escaneo, fuerza bruta y esteganografía.
-🛠 Prerrequisitos
+   🛠 Prerrequisitos
 Sistema base: Kali Linux
 
 Docker instalado:
 
 sudo apt install docker.io
+## RTA
+
+Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto de dificultad Fácil. Tiene como objetivo introducir herramientas básicas de pentesting sobre entornos Docker usando técnicas de escaneo, fuerza bruta y esteganografía.
+
 
 | **HERRAMIENTA** | **DEFINICION** | **FUNCION** | **USOS** |
 | :--- | :--- | :--- | :--- |
