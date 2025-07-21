@@ -6,6 +6,8 @@ Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto
 🛠 Prerrequisitos
 Sistema base: Kali Linux
 
+
+
 Docker instalado:
 
 sudo apt install docker.io
@@ -109,7 +111,7 @@ Se puede consultar el siguiente archivo Excel para la definición, funcionalidad
 (Se sugiere agregar un archivo complementario comandos.md con descripciones detalladas de cada comando, sus parámetros y alternativas.)
 
 🔁 Diagrama de Flujo
-![DIAGRAMA DE FLUJO](ACCC.png)
+![DIAGRAMA DE FLUJO](/Imagenes/ACCC.png)
 
 
 📌 Créditos
