@@ -120,5 +120,4 @@ Se puede consultar el siguiente archivo Excel para la definición, funcionalidad
 ![DIAGRAMA DE FLUJO](Imagenes/ACCC.png)
 
 
-📌 Créditos
-Laboratorio original: dockerlabs.es 
+
