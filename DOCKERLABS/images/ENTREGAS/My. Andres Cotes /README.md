@@ -4,6 +4,12 @@
 ## RTA
 
 Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto de dificultad Fácil. Tiene como objetivo introducir herramientas básicas de pentesting sobre entornos Docker usando técnicas de escaneo, fuerza bruta y esteganografía.
+🛠 Prerrequisitos
+Sistema base: Kali Linux
+
+Docker instalado:
+
+sudo apt install docker.io
 
 | **HERRAMIENTA** | **DEFINICION** | **FUNCION** | **USOS** |
 | :--- | :--- | :--- | :--- |
@@ -15,14 +21,7 @@ Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto
 | **Steghide** | Una utilidad de línea de comandos que implementa técnicas esteganográficas para incrustar información secreta dentro de archivos de imagen y audio. 🖼️ | Inserta un *payload* (carga útil) de datos dentro de un archivo portador (*carrier file*), modificando su estructura de forma imperceptible para el ojo humano. | Análisis esteganográfico para detectar canales de comunicación encubiertos y la exfiltración de datos no autorizada por parte de amenazas internas o externas. |
 | **File** | Un comando estándar en sistemas UNIX/Linux que determina la naturaleza de un archivo examinando sus "números mágicos" y no su extensión. 🔍 | Inspecciona los primeros bytes de un archivo para identificar su tipo real, eludiendo intentos de ofuscación mediante el cambio de nombre. | Identificación de malware que se disfraza con extensiones falsas (ej. un `.exe` renombrado a `.pdf`) y triage inicial de evidencia en análisis forense. |
 
-🛠 Prerrequisitos
-Sistema base: Kali Linux
 
-
-
-Docker instalado:
-
-sudo apt install docker.io
 
 2. Explicar en detalle cada uno de los comandos empleados en el anterior CTF; realizando un desglose del mismo y citando al menos tres alternativas (si aplica) de variantes del comando para las herramientas empleadas, este punto amplia el ejercicio anterior.
    
