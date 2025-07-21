@@ -118,6 +118,8 @@ Se puede consultar el siguiente archivo Excel para la definición, funcionalidad
 🧰 Comandos y Variantes
 (Se sugiere agregar un archivo complementario comandos.md con descripciones detalladas de cada comando, sus parámetros y alternativas.)
 
+
+
 3. Realice un diagrama de flujo de todo el procedimiento realizado
 ## RTA
 🔁 Diagrama de Flujo
