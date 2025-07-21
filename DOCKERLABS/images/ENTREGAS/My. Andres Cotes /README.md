@@ -109,6 +109,7 @@ Se puede consultar el siguiente archivo Excel para la definición, funcionalidad
 (Se sugiere agregar un archivo complementario comandos.md con descripciones detalladas de cada comando, sus parámetros y alternativas.)
 
 🔁 Diagrama de Flujo
+![DIAGRAMA DE FLUJO](Images/29.png)
 
 
 📌 Créditos
