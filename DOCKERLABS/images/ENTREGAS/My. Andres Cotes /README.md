@@ -44,7 +44,7 @@ cd Documents/amor
 chmod +x auto_deploy.sh
 ./auto_deploy.sh amor.tar
 
-![DESPLIEGUE](Imagenes/DESP.png)
+![DESPLIEGUE](Imagenes/DESP.jpg)
 
 🔍 Reconocimiento
 Obtener interfaz:
