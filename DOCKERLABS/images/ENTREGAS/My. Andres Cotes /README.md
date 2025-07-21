@@ -117,6 +117,10 @@ whoami
 
 
 
+
+
+
+
 3. Realice un diagrama de flujo de todo el procedimiento realizado
 ## RTA
 🔁 Diagrama de Flujo
