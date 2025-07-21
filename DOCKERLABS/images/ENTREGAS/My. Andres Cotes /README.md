@@ -1,4 +1,6 @@
-DockerLabs - Reto AMOR
+## DockerLabs - Reto AMOR
+
+
 Este laboratorio forma parte de la plataforma DockerLabs y corresponde a un reto de dificultad Fácil. Tiene como objetivo introducir herramientas básicas de pentesting sobre entornos Docker usando técnicas de escaneo, fuerza bruta y esteganografía.
 
 🛠 Prerrequisitos
