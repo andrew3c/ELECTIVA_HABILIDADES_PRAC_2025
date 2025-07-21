@@ -12,7 +12,7 @@ Docker instalado:
 
 sudo apt install docker.io
 
-🚚 Despliegue del Laboratorio
+2. 🚚 Despliegue del Laboratorio
 Transferir los archivos del reto:
 
 scp -r amor kali@192.168.1.12:/home/kali/Documents/
