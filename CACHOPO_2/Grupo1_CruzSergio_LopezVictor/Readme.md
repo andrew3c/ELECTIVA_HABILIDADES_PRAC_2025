@@ -33,14 +33,14 @@ nmap -p- -sCV --open -sS --min-rate 5000 -vvv -n -Pn 192.168.101.128
 ### Descubrimiento de hosts activos
 
 ```bash
-nmap -sP 10.0.2.0/24
+nmap -sP 192.168.101.128/24
 ```
 ![Host Activos](Images/host_activos.png)
 
 ### Escaneo detallado de puertos y servicios
 
 ```bash
-nmap -sV -sC -p- 10.0.2.20
+nmap -sV -sC -p- 192.168.101.128
 ```
 
 
@@ -55,21 +55,31 @@ PORT   STATE SERVICE VERSION
 - **Puerto 22**: SSH.
 - **Puerto 80**: HTTP (con redirección a `cachopo.thl`).
 
+
 ---
 
 ## 2. Análisis del Servicio Web
 
+![Go Buster](Images/cachopo_gobuster.png)
+
+
 ### Acceso inicial
 
 - El sitio web redireccionaba a `http://cachopo.thl/`.
-- Se añadió `10.0.2.20 cachopo.thl` a `/etc/hosts`.
+- Se añadió `192.168.101.128 cachopo.thl` a `/etc/hosts`.
+
+![Host](Images/add_host_dhcp.png)
 
 ### Descarga de archivo sospechoso
 
 - Se descargó una imagen JPG desde el sitio.
 - La imagen estaba protegida y contenía información oculta.
 
-![Go Buster](Images/cachopo_gobuster.png)
+![Web Cachopo](Images/cachopo_thl.png)
+
+
+![Imagen Cachopo](Images/cachopo.jpg)
+
 
 ---
 
