@@ -1,6 +1,6 @@
-Reto CTF: Acceso SSH a Contenedor Ubuntu
+## Reto CTF: Acceso SSH a Contenedor Ubuntu
 
-Descripción del Reto
+## Descripción del Reto
 
 En este reto se proporciona una imagen Docker basada en Ubuntu con un servicio SSH habilitado. El objetivo es:
 
@@ -14,7 +14,7 @@ Realizar un ataque de fuerza bruta al servicio SSH usando hydra.
 
 Obtener la contraseña correcta y acceder al contenedor como legion.
 
-Prerrequisitos
+## 1. Prerrequisitos
 
 Docker instalado y en ejecución.
 
